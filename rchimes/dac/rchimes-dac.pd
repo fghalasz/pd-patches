@@ -1,0 +1,52 @@
+#N canvas 83 214 829 485 12;
+#X obj 379 303 dac~;
+#X obj 608 238 *~ 1;
+#X obj 605 137 osc~ 440;
+#X obj 205 239 *~ 1;
+#X obj 506 240 *~ 1;
+#X obj 504 139 osc~ 330;
+#X obj 327 233 *~ 1;
+#X obj 174 140 ggee/streamin~ 3222;
+#X obj 322 140 ggee/streamin~ 3223;
+#X obj 34 306 loadbang;
+#X obj 531 211 tgl 15 0 empty test_bang empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X msg 33 375 \; pd dsp 0;
+#X msg 34 332 \; pd dsp 1;
+#X obj 633 206 tgl 15 0 empty test_bang empty 17 7 0 10 -262144 -1
+-1 0 1;
+#X obj 228 205 tgl 15 0 empty receive_bang empty 17 7 0 10 -262144
+-1 -1 1 1;
+#X obj 351 199 tgl 15 0 empty receive_bang empty 17 7 0 10 -262144
+-1 -1 1 1;
+#X text 103 340 <- Click to turn DSP on;
+#X text 101 381 <- Click to turn DSP off;
+#X obj 311 84 tgl 15 0 receive_bang empty empty 17 7 0 10 -262144 -1
+-1 1 1;
+#X obj 311 19 loadbang;
+#X msg 311 41 1;
+#X obj 577 78 tgl 15 0 test_bang empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 577 16 loadbang;
+#X msg 577 39 0;
+#X text 139 82 Click here to toggle -->;
+#X text 141 100 RECEIVE AUDIO of/off;
+#X text 406 77 Click here to toggle -->;
+#X text 407 93 TEST AUDIO of/off;
+#X connect 1 0 0 1;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 0;
+#X connect 5 0 4 0;
+#X connect 6 0 0 1;
+#X connect 7 0 3 0;
+#X connect 8 0 6 0;
+#X connect 9 0 12 0;
+#X connect 10 0 4 1;
+#X connect 13 0 1 1;
+#X connect 14 0 3 1;
+#X connect 15 0 6 1;
+#X connect 19 0 20 0;
+#X connect 20 0 18 0;
+#X connect 22 0 23 0;
+#X connect 23 0 21 0;
