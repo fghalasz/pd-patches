@@ -6,6 +6,18 @@
 ::pdwindow::error $::host
 ::pdwindow::post "\n"
 
+proc mm_striplocal {host} {
+   if { [string compare $host "localhost"] != 0 } {
+        return  [string range $::host 0 end-6]
+   } else {
+	return $host
+   }
+}
+
+
+wm title .pdwindow [format "Pd (@%s)" [string toupper [mm_striplocal $::host]]]
+
+
 
 proc mm_set_menu_color {bg abg} {
     $::pdwindow_menubar configure -background $bg -activebackground $abg
