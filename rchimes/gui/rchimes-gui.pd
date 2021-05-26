@@ -1,4 +1,4 @@
-#N canvas 126 297 727 708 10;
+#N canvas 252 785 616 533 10;
 #N canvas 351 87 432 373 spectrolog 0;
 #N canvas 556 61 872 789 FFT_Analyse 0;
 #X obj 101 102 inlet~;
@@ -246,7 +246,27 @@ energie;
 #X connect 2 0 0 0;
 #X connect 3 0 0 2;
 #X coords 0 -1 1 1 330 210 1 0 0;
-#X restore 73 103 pd spectrolog;
-#X obj 70 45 ggee/streamin~ 3224;
+#X restore 182 275 pd spectrolog;
+#X obj 179 217 ggee/streamin~ 3224;
+#X obj 371 68 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 410 76 <-- CLICK HERE TO START/STOP;
+#X obj 372 148 netsend;
+#X msg 139 109 connect core.local 3225;
+#X msg 138 144 disconnect;
+#X msg 373 111 send bang;
+#X obj 139 24 loadbang;
+#X obj 221 66 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 136 63 delay 3000;
+#X msg 40 62 \; pd dsp 1;
 #X connect 1 0 0 0;
-#X coords 0 708 1 707 100 100 0;
+#X connect 2 0 7 0;
+#X connect 5 0 4 0;
+#X connect 6 0 4 0;
+#X connect 7 0 4 0;
+#X connect 8 0 10 0;
+#X connect 8 0 11 0;
+#X connect 9 0 5 0;
+#X connect 10 0 5 0;
+#X coords 0 533 1 532 100 100 0;
